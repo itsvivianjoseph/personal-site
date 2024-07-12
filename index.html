@@ -3,108 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page Website</title>
+    <title>Embedded Site with Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function updateIframe(src) {
+            document.getElementById('contentFrame').src = src;
+        }
+    </script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#bio">Bio/CV</a></li>
-                <li><a href="#manifesto">Manifesto</a></li>
+                <li><a href="#" onclick="updateIframe('https://www.sankarrenganathan.com/')">Home</a></li>
+                <li><a href="#" onclick="updateIframe('./cv.html')">CV</a></li>
+                <li><a href="#" onclick="updateIframe('./manifesto.html')">Manifesto</a></li>
             </ul>
         </nav>
     </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm Sankar Renganathan</h1>
-            <p>Welcome to my personal website.</p>
-            <p>Explore my professional journey, and feel free to read and download my manifesto and CV.</p>
-            <a href="#bio" class="btn">Learn More About Me</a>
-        </div>
-    </section>
-
-    <section id="bio">
-        <h1>Bio/CV</h1>
-        <div class="pdf-container">
-            <iframe src="./cv.pdf" class="pdf-iframe"></iframe>
-        </div>
-    </section>
-
-    <section id="manifesto">
-        <h1>Manifesto</h1>
-        <div class="pdf-container">
-            <iframe src="./manifesto.pdf" class="pdf-iframe"></iframe>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Sankar Renganathan</p>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <main>
+        <iframe id="contentFrame" src="https://www.sankarrenganathan.com/" frameborder="0"></iframe>
+    </main>
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Page Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#bio">Bio/CV</a></li>
-                <li><a href="#manifesto">Manifesto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home">
-        <h1>Welcome to My Website</h1>
-        <p>This is the home section. Welcome!</p>
-    </section>
-
-    <section id="bio">
-        <h1>Bio/CV</h1>
-        <iframe src="./cv.pdf" width="100%" height="600px"></iframe>
-    </section>
-
-    <section id="manifesto">
-        <h1>Manifesto</h1>
-        <iframe src="./manifesto.pdf" width="100%" height="600px"></iframe>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
-
-    <script>
-        // Smooth scroll for in-page navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html> -->
